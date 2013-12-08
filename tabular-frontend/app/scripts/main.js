@@ -27,17 +27,12 @@ require.config({
     underscore: '../bower_components/underscore/underscore',
     bootstrap: 'vendor/bootstrap',
     handlebars: '../bower_components/handlebars/handlebars',
-    networkCollection: 'collections/network',
-    networkModel: 'models/network',
-    networkRouter: 'routes/network',
-    networkTemplate: 'templates/network',
-    networkView: 'views/network'
   }
 });
 
 require([
   'backbone',
-  'networkRouter'
+  'routes/network'
 ], function (Backbone, NetworkRouter) {
   new NetworkRouter();
   Backbone.history.start();

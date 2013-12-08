@@ -3,7 +3,7 @@
 define([
   'jquery',
   'backbone',
-  'networkCollection'
+  'collections/network'
 ], function ($, Backbone, NetworkCollection) {
   'use strict';
 

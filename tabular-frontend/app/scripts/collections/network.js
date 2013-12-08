@@ -10,13 +10,11 @@ define([
   var NetworkCollection = Backbone.Collection.extend({
     model: NetworkModel,
     url: '/api',
+
     parse: function(response) {
-      console.log('GOT SOME DATA!!!', response);
+      this.networkData = response.network_statistics
       return response;
     },
-    initialize: function() {
-      console.log('network collection initialized!')
-    }
   });
 
   return NetworkCollection;
