@@ -1,15 +1,15 @@
 /*global define*/
 
 define([
-    'underscore',
-    'backbone'
+  'underscore',
+  'backbone'
 ], function (_, Backbone) {
-    'use strict';
+  'use strict';
 
-    var NetworkModel = Backbone.Model.extend({
-        defaults: {
-        }
-    });
+  var NetworkModel = Backbone.Model.extend({
+    defaults: {
+    }
+  });
 
-    return NetworkModel;
+  return NetworkModel;
 });
