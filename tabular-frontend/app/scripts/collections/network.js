@@ -8,7 +8,10 @@ define([
   'use strict';
 
   var NetworkCollection = Backbone.Collection.extend({
-    model: NetworkModel
+    model: NetworkModel,
+    initialize: function() {
+      console.log('network collection initialized!')
+    }
   });
 
   return NetworkCollection;

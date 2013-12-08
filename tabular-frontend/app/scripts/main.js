@@ -26,15 +26,19 @@ require.config({
     backbone: '../bower_components/backbone/backbone',
     underscore: '../bower_components/underscore/underscore',
     bootstrap: 'vendor/bootstrap',
-    handlebars: '../bower_components/handlebars/handlebars'
+    handlebars: '../bower_components/handlebars/handlebars',
+    networkCollection: 'collections/network',
+    networkModel: 'models/network',
+    networkRouter: 'routes/network',
+    networkTemplate: 'templates/network',
+    networkView: 'views/network'
   }
 });
 
 require([
-  'backbone'
-], function (Backbone) {
+  'backbone',
+  'networkRouter'
+], function (Backbone, NetworkRouter) {
+  new NetworkRouter();
   Backbone.history.start();
-  $.get('/api', function() {
-    console.log(data)
-  })
 });
