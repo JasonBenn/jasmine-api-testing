@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  count_on_waitlist: 1
+  name: MyString
+  num_members_needed_for_launch: 1
+
+two:
+  count_on_waitlist: 1
+  name: MyString
+  num_members_needed_for_launch: 1
