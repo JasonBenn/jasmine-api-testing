@@ -1,5 +1,5 @@
 class NetworksController < ApplicationController
 	def index
-		render json: { a: 1 }
+		render json: File.read('app/json/networks.json')
 	end
 end
