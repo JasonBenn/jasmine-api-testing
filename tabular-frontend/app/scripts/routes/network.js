@@ -13,10 +13,8 @@ define([
     },
 
     startup: function() {
-      $.get('api', function(data) {
-        var networks = new NetworkCollection(data);
-        console.log(networks)
-      })
+      var networks = new NetworkCollection();
+      networks.fetch();
     }
 
   });
