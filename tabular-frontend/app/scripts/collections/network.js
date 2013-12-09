@@ -12,8 +12,7 @@ define([
     url: '/api',
 
     parse: function(response) {
-      this.networkData = response.network_statistics
-      return response;
+      return response.network_statistics;
     },
   });
 
