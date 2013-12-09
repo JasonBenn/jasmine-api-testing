@@ -3,8 +3,9 @@
 define([
   'jquery',
   'backbone',
-  'collections/network'
-], function ($, Backbone, NetworkCollection) {
+  'collections/network',
+  'views/composite/table'
+], function ($, Backbone, NetworkCollection, NetworksView) {
   'use strict';
 
   var NetworkRouter = Backbone.Router.extend({
@@ -14,7 +15,12 @@ define([
 
     startup: function() {
       var networks = new NetworkCollection();
-      networks.fetch();
+      networks.fetch({ reset: true });
+      var networksView = new NetworksView({
+        el: '.container',
+        collection: networks
+      });
+      networksView.render();
     }
 
   });
