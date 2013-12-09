@@ -8,7 +8,8 @@ define([
 ], function ($, _, Backbone, JST) {
   'use strict';
 
-  var NetworkView = Backbone.View.extend({
+  var NetworkView = Backbone.Marionette.ItemView.extend({
+    tagName: 'tr',
     template: JST['app/scripts/templates/network.hbs']
   });
 
