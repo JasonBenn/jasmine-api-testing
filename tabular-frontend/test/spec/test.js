@@ -1,12 +1,16 @@
-/*global describe, it */
 'use strict';
 
-(function () {
-    describe('Give it some context', function () {
-        describe('maybe a bit more context here', function () {
-            it('should run here few assertions', function () {
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'marionette',
+  'templates',
+  'views/item/network'
+], function ($, _, Backbone, Marionette, JST, NetworkView) {
+  describe('Give it some context', function () {
+    expect(Backbone).toBeTruthy();
+  });
+});
 
-            });
-        });
-    });
-})();
+// instantiated models hit backend and store sorted data as attrib
