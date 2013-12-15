@@ -19,6 +19,10 @@ require.config({
     },
     handlebars: {
       exports: 'Handlebars'
+    },
+    marionette : {
+      exports : 'Backbone.Marionette',
+      deps : ['backbone']
     }
   },
   paths: {
@@ -27,7 +31,7 @@ require.config({
     underscore: '../bower_components/underscore/underscore',
     marionette: '../bower_components/marionette/lib/backbone.marionette',
     bootstrap: 'vendor/bootstrap',
-    handlebars: '../bower_components/handlebars/handlebars',
+    handlebars: '../bower_components/handlebars/handlebars'
   }
 });
 
@@ -35,9 +39,11 @@ require([
   'jquery',
   'backbone',
   'collections/network',
-  'views/item/network'
+  'views/item/network',
   'views/composite/table',
-], function ($, Backbone, NetworkCollection, NetworksView) {
+  'routes/network',
+  'views/item/info'
+], function ($, Backbone, NetworkCollection, NetworkView, NetworksView, NetworkRouter, InfoView) {
 
   var App = new Backbone.Marionette.Application();
 
@@ -51,6 +57,10 @@ require([
     var networks = new NetworkCollection();
     networks.fetch({ reset: true });
     App.historyRegion.show(new NetworksView({ collection: networks }))
+  })
+
+  App.addInitializer(function() {
+    App.info.show(new InfoView())
   })
 
   App.addInitializer(function() {
