@@ -32,9 +32,31 @@ require.config({
 });
 
 require([
+  'jquery',
   'backbone',
-  'routes/network'
-], function (Backbone, NetworkRouter) {
-  new NetworkRouter();
-  Backbone.history.start();
+  'collections/network',
+  'views/item/network'
+  'views/composite/table',
+], function ($, Backbone, NetworkCollection, NetworksView) {
+
+  var App = new Backbone.Marionette.Application();
+
+  App.addRegions({
+    info: '#info',
+    historyRegion: '#history',
+    actions: '#actions'
+  })
+
+  App.addInitializer(function() {
+    var networks = new NetworkCollection();
+    networks.fetch({ reset: true });
+    App.historyRegion.show(new NetworksView({ collection: networks }))
+  })
+
+  App.addInitializer(function() {
+    new NetworkRouter();
+    Backbone.history.start();
+  })
+
+  App.start();
 });

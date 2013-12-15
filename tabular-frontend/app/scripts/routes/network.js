@@ -10,19 +10,7 @@ define([
 
   var NetworkRouter = Backbone.Router.extend({
     routes: {
-      '': 'startup'
     },
-
-    startup: function() {
-      var networks = new NetworkCollection();
-      networks.fetch({ reset: true });
-      var networksView = new NetworksView({
-        el: '.container',
-        collection: networks
-      });
-      networksView.render();
-    }
-
   });
 
   return NetworkRouter;
